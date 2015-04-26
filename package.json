@@ -1,0 +1,26 @@
+{
+  "name": "all-the-package-names",
+  "version": "1.0.0",
+  "description": "A perpetually out-of-date list of all the 140,000+ public package names on npm",
+  "main": "names.json",
+  "scripts": {
+    "build": "./downoad.js && ./extract.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeke/all-the-package-names.git"
+  },
+  "keywords": [
+    "npm",
+    "packages",
+    "names",
+    "list",
+    "words"
+  ],
+  "author": "zeke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeke/all-the-package-names/issues"
+  },
+  "homepage": "https://github.com/zeke/all-the-package-names#readme"
+}
