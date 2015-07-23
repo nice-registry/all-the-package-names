@@ -4,7 +4,9 @@
   "description": "A perpetually out-of-date list of all the 140,000+ public package names on npm",
   "main": "names.json",
   "scripts": {
-    "build": "./downoad.js && ./extract.js"
+    "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
+    "extract": "./extract.js",
+    "build": "npm run download && npm run extract"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/zeke/all-the-package-names/issues"
   },
-  "homepage": "https://github.com/zeke/all-the-package-names#readme"
+  "homepage": "https://github.com/zeke/all-the-package-names#readme",
+  "dependencies": {
+    "lodash": "^3.10.0",
+    "superagent": "^1.2.0"
+  }
 }
