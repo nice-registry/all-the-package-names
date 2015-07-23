@@ -1,6 +1,6 @@
 # all-the-package-names 
 
-A perpetually out-of-date list of all the 140,000+ public package names on npm
+A perpetually out-of-date list of all the 166,000+ public package names on npm
 
 ## Installation
 

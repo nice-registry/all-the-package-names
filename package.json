@@ -1,7 +1,7 @@
 {
   "name": "all-the-package-names",
   "version": "1.0.1",
-  "description": "A perpetually out-of-date list of all the 140,000+ public package names on npm",
+  "description": "A perpetually out-of-date list of all the 166,000+ public package names on npm",
   "main": "names.json",
   "scripts": {
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
