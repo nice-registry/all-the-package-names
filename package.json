@@ -1,12 +1,13 @@
 {
   "name": "all-the-package-names",
   "version": "1.1.0",
-  "description": "A perpetually out-of-date list of all the 166,000+ public package names on npm",
+  "description": "A perpetually out-of-date list of all the 198,000+ public package names on npm",
   "main": "names.json",
   "scripts": {
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
     "extract": "./extract.js",
-    "build": "npm run download && npm run extract"
+    "build": "npm run download && npm run extract",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",

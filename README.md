@@ -1,6 +1,6 @@
-# all-the-package-names 
+# all-the-package-names
 
-A perpetually out-of-date list of all the 166,000+ public package names on npm
+A perpetually out-of-date list of all the 198,000+ public package names on npm
 
 ## Installation
 
@@ -22,7 +22,7 @@ names.indexOf('crazy-new-package-name') > -1
 // => false
 
 names.length
-// => 143086
+// => 198679
 
 names.filter(name => name.includes('banana'))
 // => [ 'banana', 'banana-banana', 'banana-split', ...]
