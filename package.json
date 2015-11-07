@@ -1,6 +1,6 @@
 {
   "name": "all-the-package-names",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A perpetually out-of-date list of all the 198,000+ public package names on npm",
   "main": "names.json",
   "scripts": {
