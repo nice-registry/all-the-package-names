@@ -9,6 +9,6 @@ describe('all-the-package-names', function(){
   })
 
   it ('has hecka names', function() {
-    assert(names.length > 190000)
+    assert(names.length > 260*1000)
   })
 })
