@@ -1,12 +1,13 @@
 {
   "name": "all-the-package-names",
-  "version": "1.1.0",
-  "description": "A perpetually out-of-date list of all the 166,000+ public package names on npm",
+  "version": "1.3.0",
+  "description": "A perpetually out-of-date list of all the 263663+ public package names on npm",
   "main": "names.json",
   "scripts": {
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
     "extract": "./extract.js",
-    "build": "npm run download && npm run extract"
+    "build": "npm run download && npm run extract",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,13 @@
   },
   "homepage": "https://github.com/zeke/all-the-package-names#readme",
   "dependencies": {
+    "JSONStream": "^1.0.6",
+    "event-stream": "^3.3.2",
     "lodash": "^3.10.0",
+    "request": "^2.65.0",
     "superagent": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
   }
 }

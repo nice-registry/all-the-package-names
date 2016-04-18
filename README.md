@@ -1,10 +1,8 @@
-# all-the-package-names 
+# all-the-package-names
 
-A perpetually out-of-date list of all the 166,000+ public package names on npm
+A perpetually out-of-date list of all the 263663+ public package names on npm
 
 ## Installation
-
-Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
 
 ```sh
 npm install all-the-package-names --save
@@ -22,12 +20,12 @@ names.indexOf('crazy-new-package-name') > -1
 // => false
 
 names.length
-// => 143086
+// => 206271
 
 names.filter(name => name.includes('banana'))
 // => [ 'banana', 'banana-banana', 'banana-split', ...]
 
-// note: example uses iojs with --harmony_arrow_functions enabled
+// note: example uses node4+ for arrow functions
 ```
 
 ## License
