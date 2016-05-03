@@ -3,8 +3,6 @@
 if [ ! -d "all-the-package-names" ]
 then
   git clone https://github.com/zeke/all-the-package-names
-  git config user.email "zeke@sikelianos.com"
-  git config user.name "Zeke Sikelianos"
 fi
 
 cd all-the-package-names
@@ -17,6 +15,8 @@ then
   count=$(cat names.json | wc -l)
   echo "$count package names!"
   git add names.json
+  git config user.email "zeke@sikelianos.com"
+  git config user.name "Zeke Sikelianos"
   git commit -m "$count package names"
   npm version minor -m "$count package names"
   npm publish
