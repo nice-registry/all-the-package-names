@@ -1,0 +1,6 @@
+//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
+init.author.name=Zeke Sikelianos
+init.author.email=zeke@sikelianos.com
+init.author.url=http://zeke.sikelianos.com
+init.license=MIT
+save=true
