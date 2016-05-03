@@ -7,6 +7,7 @@
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
     "extract": "./extract.js",
     "build": "npm run download && npm run extract",
+    "publish": "scripts/publish",
     "test": "mocha"
   },
   "repository": {

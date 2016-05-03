@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [ ! -f "skimdb.json" ]
+then
+  npm run download
+elif test `find "skimdb.json" -mmin +30`
+then
+  npm run download
+fi
+
+npm run extract
+
+status=$(git status names.json 2>&1)
+
+if [[ "$status" =~ "modified:" ]]
+then
+  count=$(cat names.json | wc -l)
+  echo "$count package names!"
+  git add names.json
+  git commit -m "$count package names"
+  npm version minor -m "$count package names"
+  npm publish
+  git push origin master --follow-tags
+else
+  echo "no new names"
+fi
