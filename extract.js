@@ -16,5 +16,5 @@ fs.createReadStream('./skimdb.json')
   }))
   .on('end', function(){
     fs.writeFileSync('./names.json', JSON.stringify(compact(names), null, 2))
-    console.log('wrote names.json')
+    console.log('\nwrote names.json')
   })
