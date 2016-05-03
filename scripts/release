@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
-if [ ! -f "skimdb.json" ]
+if [ ! -d "all-the-package-names" ]
 then
-  npm run download
-elif test `find "skimdb.json" -mmin +30`
-then
-  npm run download
+  git clone https://github.com/zeke/all-the-package-names
 fi
 
+cd all-the-package-names
+npm run download
 npm run extract
-
 status=$(git status names.json 2>&1)
 
 if [[ "$status" =~ "modified:" ]]
@@ -20,8 +18,7 @@ then
   git commit -m "$count package names"
   npm version minor -m "$count package names"
   npm publish
-  git remote add zeke https://github.com/zeke/all-the-package-names
-  git push zeke master --follow-tags
+  git push origin master --follow-tags
 else
   echo "no new names"
 fi
