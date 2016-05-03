@@ -3,6 +3,8 @@
 if [ ! -d "all-the-package-names" ]
 then
   git clone https://github.com/zeke/all-the-package-names
+  git config user.email "zeke@sikelianos.com"
+  git config user.name "Zeke Sikelianos"
 fi
 
 cd all-the-package-names
