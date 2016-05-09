@@ -27,14 +27,12 @@
     "url": "https://github.com/zeke/all-the-package-names/issues"
   },
   "homepage": "https://github.com/zeke/all-the-package-names#readme",
-  "dependencies": {
+  "devDependencies": {
     "JSONStream": "^1.0.6",
     "event-stream": "^3.3.2",
     "lodash": "^3.10.0",
     "request": "^2.65.0",
-    "superagent": "^1.2.0"
-  },
-  "devDependencies": {
+    "superagent": "^1.2.0",
     "mocha": "^2.3.3"
   }
 }
