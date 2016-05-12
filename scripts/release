@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
 
-if [ ! -d "all-the-package-names" ]
-then
+set -o errexit    # always exit on error
+set -o pipefail   # don't ignore exit codes when piping output
+set -o nounset    # fail on unset variables
+
+if [ ! -d "all-the-package-names" ]; then
   git clone https://github.com/zeke/all-the-package-names
 fi
 
 cd all-the-package-names
-npm run download
-npm run extract
+npm run build
+npm test
+
 status=$(git status names.json 2>&1)
 
-if [[ "$status" =~ "modified:" ]]
-then
+if [[ "$status" =~ "modified:" ]]; then
   count=$(cat names.json | wc -l)
   echo "$count package names!"
   git add names.json
@@ -21,6 +24,4 @@ then
   npm version minor -m "bump minor to %s"
   npm publish
   git push origin master --follow-tags
-else
-  echo "no new names"
 fi
