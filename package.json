@@ -5,7 +5,7 @@
   "main": "names.json",
   "scripts": {
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
-    "extract": "./extract.js",
+    "extract": "scripts/extract",
     "build": "npm run download && npm run extract",
     "release": "scripts/release",
     "test": "mocha"
