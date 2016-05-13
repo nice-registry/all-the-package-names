@@ -1,14 +1,8 @@
-/* globals describe, it */
-
+const test = require('tape')
 const names = require('..')
-const assert = require('assert')
 
-describe('all-the-package-names', function(){
-  it ('is an array', function() {
-    assert(Array.isArray(names))
-  })
-
-  it ('has hecka names', function() {
-    assert(names.length > 260*1000)
-  })
+test('names', function (t) {
+  t.ok(Array.isArray(names), 'is an array')
+  t.ok(names.length > 260*1000, 'has hella names')
+  t.end()
 })

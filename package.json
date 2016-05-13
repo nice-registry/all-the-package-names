@@ -8,7 +8,7 @@
     "extract": "scripts/extract",
     "build": "npm run download && npm run extract",
     "release": "scripts/release",
-    "test": "mocha"
+    "test": "node test/index.js | tap-spec"
   },
   "repository": "https://github.com/zeke/all-the-package-names",
   "keywords": [
@@ -34,6 +34,7 @@
     "lodash": "^3.10.0",
     "request": "^2.65.0",
     "superagent": "^1.2.0",
-    "mocha": "^2.3.3"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
   }
 }
