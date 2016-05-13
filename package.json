@@ -10,16 +10,17 @@
     "release": "scripts/release",
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zeke/all-the-package-names.git"
-  },
+  "repository": "https://github.com/zeke/all-the-package-names",
   "keywords": [
     "npm",
+    "registry",
     "packages",
     "names",
     "list",
-    "words"
+    "words",
+    "filter",
+    "search",
+    "offline"
   ],
   "author": "zeke",
   "license": "MIT",
