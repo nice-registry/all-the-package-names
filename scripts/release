@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 
+set -x            # print each command before execution
 set -o errexit    # always exit on error
 set -o pipefail   # don't ignore exit codes when piping output
 set -o nounset    # fail on unset variables
 
-if [ ! -d "all-the-package-names" ]; then
-  git clone https://github.com/zeke/all-the-package-names
-fi
-
+# set up the repo
+git clone https://github.com/zeke/all-the-package-names
 cd all-the-package-names
 npm run build
 npm test
 
+# publish a new version if changes are present
 status=$(git status names.json 2>&1)
+if [[ "$status" != *"modified:"* ]]; then; exit; fi
+count=$(cat names.json | wc -l)
+git add names.json
+git config user.email "zeke@sikelianos.com"
+git config user.name "Zeke Sikelianos"
+git commit -m "$count package names"
+npm version minor -m "bump minor to %s"
+npm publish
+git push origin master --follow-tags
 
-if [[ "$status" =~ "modified:" ]]; then
-  count=$(cat names.json | wc -l)
-  echo "$count package names!"
-  git add names.json
-  git config user.email "zeke@sikelianos.com"
-  git config user.name "Zeke Sikelianos"
-  git commit -m "$count package names"
-  npm version minor -m "bump minor to %s"
-  npm publish
-  git push origin master --follow-tags
-fi
+# clean up
+cd ..
+rm -rf all-the-package-names
