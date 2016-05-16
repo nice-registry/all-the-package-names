@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-set -x            # print each command before execution
+set -x            # print commands before execution
 set -o errexit    # always exit on error
-set -o pipefail   # don't ignore exit codes when piping output
+set -o pipefail   # honor exit codes when piping
 set -o nounset    # fail on unset variables
 
-# set up the repo
+# clone the repo and fetch new names
 git clone https://github.com/zeke/all-the-package-names
 cd all-the-package-names
 npm run build
