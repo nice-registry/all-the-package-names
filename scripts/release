@@ -11,9 +11,9 @@ cd all-the-package-names
 npm run build
 npm test
 
-# publish a new version if changes are present
-status=$(git status names.json 2>&1)
-if [[ "$status" != *"modified:"* ]]; then; exit; fi
+# bail if no changes are present
+[[ `git status --porcelain` ]] || exit
+
 count=$(cat names.json | wc -l)
 git add names.json
 git config user.email "zeke@sikelianos.com"
