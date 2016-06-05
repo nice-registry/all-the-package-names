@@ -3,6 +3,7 @@
   "version": "1.738.0",
   "description": "A list of all the public package names on npm. Updated hourly.",
   "main": "names.json",
+  "bin": "cli.js",
   "scripts": {
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
     "extract": "scripts/extract",
