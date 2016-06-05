@@ -28,6 +28,14 @@ names.filter(name => name.includes('banana'))
 // note: example uses node4+ for arrow functions
 ```
 
+You can also use it on the command line. Newline-delimited names are piped to
+STDOUT:
+
+```sh
+npm i -g all-the-package-names
+all-the-package-names | grep spell
+```
+
 ## License
 
 MIT
