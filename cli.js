@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-process.stdout.write(require('./').join('\n'))
+process.stdout.write(require('.').join('\n'))
