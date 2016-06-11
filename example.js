@@ -1,4 +1,4 @@
-const names = require('./')
+const names = require('.')
 
 names.indexOf('superagent') > -1
 // => true
