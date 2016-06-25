@@ -1,6 +1,6 @@
 {
   "name": "all-the-package-names",
-  "version": "1.1211.0",
+  "version": "1.1212.0",
   "description": "A list of all the public package names on npm. Updated hourly.",
   "main": "names.json",
   "bin": "cli.js",
