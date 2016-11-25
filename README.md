@@ -1,6 +1,6 @@
 # all-the-package-names
 
-A list of all the public package names on npm. Updated hourly.
+A list of all the public package names on npm. Updated daily.
 
 ## Installation
 
