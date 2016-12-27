@@ -1,14 +1,12 @@
 {
   "name": "all-the-package-names",
   "version": "1.3085.0",
-  "description": "A list of all the public package names on npm. Updated hourly.",
+  "description": "A list of all the public package names on npm. Updated daily.",
   "main": "names.json",
   "bin": "cli.js",
   "scripts": {
-    "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
-    "extract": "scripts/extract",
-    "build": "npm run download && npm run extract",
-    "release": "scripts/release",
+    "build": "script/build",
+    "release": "script/release",
     "test": "node test/index.js | tap-spec"
   },
   "repository": "https://github.com/zeke/all-the-package-names",
@@ -25,16 +23,11 @@
   ],
   "author": "zeke",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zeke/all-the-package-names/issues"
-  },
-  "homepage": "https://github.com/zeke/all-the-package-names#readme",
   "devDependencies": {
-    "JSONStream": "^1.0.6",
-    "event-stream": "^3.3.2",
+    "dependent-counts": "^2.0.0",
     "lodash": "^3.10.0",
-    "request": "^2.65.0",
-    "superagent": "^1.2.0",
+    "ora": "^0.4.0",
+    "package-stream": "^1.0.2",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
   }

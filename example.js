@@ -1,15 +1,27 @@
-const names = require('.')
+const names = require('./')
 
-names.indexOf('superagent') > -1
+// Most-depended-on names are first. See what's popular!
+names.slice(0,5)
+// [
+//   'mocha',
+//   'chai',
+//   'lodash',
+//   'grunt',
+//   'eslint'
+// ]
+
+names.includes('superagent')
 // => true
 
-names.indexOf('crazy-new-package-name') > -1
+// Check if a given package name exists
+names.includes('crazy-new-package-name')
 // => false
 
 names.length
-// => 143086
+// => 286289
 
 names.filter(name => name.includes('banana'))
 // => [ 'banana', 'banana-banana', 'banana-split', ...]
 
-// note: example uses iojs with --harmony_arrow_functions enabled
+// Note: This example requires node 4 or greater because it uses
+// const, arrow functions, and the `includes` array/string helper.
