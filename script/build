@@ -17,7 +17,7 @@ registry
 
 function addPackage (pkg) {
   const name = pkg.name
-  if (name && name.length && !names.includes(name)) names.push(name)
+  if (name && name.length) names.push(name)
 
   // to check the finish function early...
   // if (names.length > 100 * 1000) finish()
@@ -25,7 +25,12 @@ function addPackage (pkg) {
 
 function finish () {
   const filename = path.join(__dirname, '../names.json')
-  const finalNames = chain(names).compact().uniq().value()
+  const finalNames = chain(names)
+    .compact()
+    .uniq()
+    .value()
+    .filter(name => !isNumber(name))
+
   fs.writeFileSync(filename, JSON.stringify(finalNames, null, 2))
   console.log(`\nwrote ${finalNames.length} package names to ${filename}`)
   process.exit()
