@@ -58,6 +58,21 @@ npm i -g all-the-package-names
 all-the-package-names | grep spell
 ```
 
+## ⚠️ Gotchas
+
+Note that while mixed-case package names are no longer allowed to be published
+to the npm registry, there are over 2800 legacy mixed-case packages, many of 
+which have the same spelling as other existing lowercase packages. See [nice-registry/mixed-case-package-names](https://github.com/nice-registry/mixed-case-package-names)
+for the the full list.
+
+To avoid the mixed-case names when working with this data, 
+just filter them out:
+
+```js
+const names = require('all-the-package-names')
+  .filter(name => name === name.toLowerCase())
+```
+
 ## Tests
 
 ```sh
