@@ -27,7 +27,7 @@ jobs:
         echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
         git add .
-        npm version patch -f -m "update all-the-package-names to %s"
+        npm version patch -f -m "Update all-the-package-names to %s"
 
         git push origin master --follow-tags
         npm publish
