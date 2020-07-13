@@ -1,15 +1,17 @@
 {
   "name": "all-the-package-names",
   "version": "1.3904.0",
-  "description": "A list of all the public package names on npm. Updated daily.",
+  "description": "A list of all the public package names on npm. Updated every 8 hours.",
   "main": "names.json",
   "bin": "cli.js",
+  "files": [
+    "names.json",
+    "cli.js"
+  ],
   "scripts": {
-    "build": "script/build",
-    "release": "script/release",
-    "test": "node test/index.js | tap-spec"
+    "test": "standard && mocha"
   },
-  "repository": "https://github.com/zeke/all-the-package-names",
+  "repository": "https://github.com/nice-registry/all-the-package-names",
   "keywords": [
     "npm",
     "registry",
@@ -24,12 +26,18 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.2.0",
     "dependent-counts": "^2.0.0",
-    "is-number": "^4.0.0",
-    "lodash": "^3.10.0",
-    "ora": "^0.4.0",
-    "package-stream": "^1.0.2",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.5.1"
+    "mocha": "^8.0.1",
+    "num-sort": "^2.1.0",
+    "ora": "^4.0.4",
+    "package-stream": "^3.1.0",
+    "standard": "^14.3.4",
+    "write-json-file": "^4.3.0"
+  },
+  "standard": {
+    "ignore": [
+      "example.js"
+    ]
   }
 }

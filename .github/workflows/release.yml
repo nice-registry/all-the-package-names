@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  schedule:
+    - cron: "0 */8 * * *"
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        token: ${{ secrets.GITHUB_PAT_FROM_ZEKE }}
+    - name: npm ci
+      run: npm ci
+    - name: release
+      run: |
+        git checkout master
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+
+        node update
+        npm test
+        [[ `git status --porcelain` ]] || exit
+
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+        git add .
+        npm version patch -f -m "update all-the-package-names to %s"
+
+        git push origin master --follow-tags
+        npm publish

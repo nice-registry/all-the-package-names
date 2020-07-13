@@ -1,2 +1,4 @@
 node_modules
 skimdb.json
+yarn.lock
+package-lock.json
