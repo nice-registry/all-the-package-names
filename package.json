@@ -26,7 +26,7 @@
   "devDependencies": {
     "dependent-counts": "^2.0.0",
     "is-number": "^4.0.0",
-    "lodash": "^3.10.0",
+    "lodash": "^4.17.19",
     "ora": "^0.4.0",
     "package-stream": "^1.0.2",
     "tap-spec": "^4.1.1",
