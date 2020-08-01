@@ -47,9 +47,6 @@ names.filter(name => name.includes('banana'))
 
 ## CLI Usage
 
-You can also use it on the command line. Newline-delimited names are piped to
-STDOUT:
-
 ```sh
 $ npm i -g all-the-package-names
 $ all-the-package-names
