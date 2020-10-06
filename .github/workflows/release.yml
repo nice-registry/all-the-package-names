@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  schedule:
+    - cron: "0 */8 * * *"
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm ci
+    - name: release
+      run: |
+        git checkout master
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@users.noreply.github.com"
+
+        npm run build
+        npm test
+        [[ `git status --porcelain` ]] || exit
+
+        echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+        count=$(cat names.json | wc -l)
+        git add names.json
+        # bump the version, commit, and create a tag
+        npm version patch -f -m "update all-the-package-names to v%s ($count package names)"
+
+        git push origin master --follow-tags
+        npm publish
