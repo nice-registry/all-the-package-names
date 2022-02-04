@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_PAT_FROM_ZEKE }}
+          token: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_ACCESS }}
       - name:
         run: |
           git config --global user.name "github-actions"
