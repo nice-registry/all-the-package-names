@@ -3,9 +3,7 @@
 A list of all the public package names on npm.
 
 - Includes scoped packages
-- Sorted by [dependent count](https://github.com/zeke/dependent-counts)
-- Uses npm's  [replicate.npmjs.com](https://github.com/npm/registry/blob/198b449e5ec11f0cc3e424ce2721dd66e8111589/docs/follower.md) service.
-- Updated [daily](http://zeke.sikelianos.com/npm-and-github-automation-with-heroku/)
+- Updated daily
 
 ## Installation
 
@@ -19,16 +17,6 @@ The module exports a big flat array of package names:
 
 ```js
 const names = require("all-the-package-names")
-
-// Most-depended-on names are first. See what's popular!
-names.slice(0,5)
-// [
-//   'mocha',
-//   'chai',
-//   'lodash',
-//   'grunt',
-//   'eslint'
-// ]
 
 names.includes('superagent')
 // => true
@@ -86,10 +74,8 @@ None
 
 ## Dev Dependencies
 
-- [dependent-counts](https://github.com/zeke/dependent-counts): Get counts of how many packages depend on the given package. Works offline.
-- [lodash](https://github.com/lodash/lodash): The modern build of lodash modular utilities.
-- [ora](https://github.com/sindresorhus/ora): Elegant terminal spinner
-- [package-stream](https://github.com/zeke/package-stream): An endless stream of clean package data from the npm registry.
+- [all-the-package-repos](https://github.com/nice-registry/all-the-package-repos): Normalized repository URLs for every package in the npm registry.
+- [is-number](https://github.com/jonschlinkert/is-number): JavaScript/Node.js utility. Returns `true` if the value is a number or string number. Useful for checking regex match results, user input, parsed strings, etc.
 - [tap-spec](https://github.com/scottcorgan/tap-spec): Formatted TAP output like Mocha&#39;s spec reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
