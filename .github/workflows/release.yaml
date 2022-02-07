@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_ACCESS }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Update and Publish
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+
+          npm update all-the-package-repos
+          npm run build
+          npm test
+          [[ `git status --porcelain` ]] || exit
+
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+  
+          git add .
+          # bump the version, commit, and create a tag
+          npm version patch -f -m "update all-the-package-names to %s"
+
+          git push origin master --follow-tags
+          npm publish

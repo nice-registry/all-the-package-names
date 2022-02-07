@@ -5,8 +5,7 @@
   "main": "names.json",
   "bin": "cli.js",
   "scripts": {
-    "build": "script/build",
-    "release": "script/release",
+    "build": "node script/build.js",
     "test": "node test/index.js | tap-spec"
   },
   "repository": "https://github.com/zeke/all-the-package-names",
@@ -24,12 +23,9 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
-    "dependent-counts": "^2.0.0",
-    "is-number": "^4.0.0",
-    "lodash": "^3.10.0",
-    "ora": "^0.4.0",
-    "package-stream": "^1.0.2",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.5.1"
+    "all-the-package-repos": "^2",
+    "is-number": "^7.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.5.0"
   }
 }
