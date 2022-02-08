@@ -2,7 +2,7 @@ name: Release
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */12 * * *"
 
 jobs:
   release:
@@ -23,7 +23,7 @@ jobs:
           npm update all-the-package-repos
           npm run build
           npm test
-          [[ `git status --porcelain` ]] || exit
+          [[ `git status --porcelain` ]] || exit 0
 
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
   
