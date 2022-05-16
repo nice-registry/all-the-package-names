@@ -1,5 +1,7 @@
 # all-the-package-names
 
+*Maintained by [jsDelivr](https://github.com/jsdelivr). Please consider [becoming a sponsor](https://github.com/sponsors/jsdelivr) to support us.*
+
 A list of all the public package names on npm.
 
 - Includes scoped packages
@@ -49,11 +51,11 @@ all-the-package-names | grep spell
 ## ⚠️ Gotchas
 
 Note that while mixed-case package names are no longer allowed to be published
-to the npm registry, there are over 2800 legacy mixed-case packages, many of 
+to the npm registry, there are over 2800 legacy mixed-case packages, many of
 which have the same spelling as other existing lowercase packages. See [nice-registry/mixed-case-package-names](https://github.com/nice-registry/mixed-case-package-names)
 for the the full list.
 
-To avoid the mixed-case names when working with this data, 
+To avoid the mixed-case names when working with this data,
 just filter them out:
 
 ```js
