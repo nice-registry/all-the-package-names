@@ -8,7 +8,7 @@
     "build": "node script/build.js",
     "test": "node test/index.js | tap-spec"
   },
-  "repository": "https://github.com/zeke/all-the-package-names",
+  "repository": "https://github.com/nice-registry/all-the-package-names",
   "keywords": [
     "npm",
     "registry",
