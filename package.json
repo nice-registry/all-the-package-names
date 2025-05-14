@@ -22,6 +22,10 @@
   ],
   "author": "zeke",
   "license": "MIT",
+  "files": [
+    "cli.js",
+    "names.json"
+  ],
   "devDependencies": {
     "all-the-package-repos": "^2",
     "is-number": "^7.0.0",
