@@ -1,5 +1,9 @@
 name: Release
 
+permissions:
+  id-token: write
+  contents: write
+
 on:
   schedule:
     - cron: "0 */24 * * *"
@@ -10,12 +14,20 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
         with:
           token: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_ACCESS }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: "lts/*"
+
+          # At the time of writing, we need to update npm to 11.5.1 or later to
+          # get support for Trusted Publishing via GitHub Actions. In future, once
+          # the image and/or setup-node action give us that out of the box, we can
+          # delete this step (and maybe also stop using setup-node if ubuntu-latest
+          # contains a recent enough npm version).
+      - name: Update npm
+        run: npm install -g npm@latest
       - name: Update and Publish
         run: |
           git config --global user.name "github-actions"
@@ -26,8 +38,6 @@ jobs:
           npm test
           [[ `git status --porcelain` ]] || exit 0
 
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-  
           git add .
           # bump the version, commit, and create a tag
           npm version patch -f -m "update all-the-package-names to %s"
